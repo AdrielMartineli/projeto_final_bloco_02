@@ -5,6 +5,8 @@ import { TypeORMError } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoriaModule } from './categoria/categoria.module';
 import { Categoria } from './categoria/entities/categoria.entity';
+import { Produto } from './produto/entities/produto.entity';
+import { ProdutoModule } from './produto/produto.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -14,11 +16,12 @@ import { Categoria } from './categoria/entities/categoria.entity';
       username: 'root',
       password: 'root',
       database: 'db_farmacia',
-      entities:[Categoria],
+      entities:[Categoria, Produto],
       synchronize: true,
       logging: true,
     }),
-    CategoriaModule
+    CategoriaModule,
+    ProdutoModule
   ],
   controllers: [],
   providers: [],
