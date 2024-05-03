@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeORMError } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CategoriaModule } from './categoria/categoria.module';
+import { Categoria } from './categoria/entities/categoria.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -12,10 +14,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'db_farmacia',
-      entities:[, ],
+      entities:[Categoria],
       synchronize: true,
       logging: true,
     }),
+    CategoriaModule
   ],
   controllers: [],
   providers: [],
